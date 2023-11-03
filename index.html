@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Address Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <style>
+        body
+        {
+            color: white;
+            background-color:#E1F5E2;
+        }
+        .container {
+            margin-top: 20px;
+            border:2px solid white;
+            background-color:#5F5D5D;
+        }
+        
+        .form-check-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h5>Personal Details</h5>
+                <form id="current-address-form">
+                    <div class="form-group">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" class="form-control" id="first-name" name="first-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" class="form-control" id="last-name" name="last-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                </form>
+                <br>
+                <h5>Current Address</h5>
+                <form id="current-address-form">
+                    <div class="form-group">
+                        <label for="street">Street Address:</label>
+                        <input type="text" class="form-control" id="street" name="street" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="city" name="city" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" id="state" name="state" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zip">ZIP Code:</label>
+                        <input type="text" class="form-control" id="zip" name="zip" required>
+                    </div>
+                </form>
+                
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="permanentCheckbox">
+                    <label class="form-check-label" for="permanentCheckbox">Permanent Address is the same as Current Address</label>
+                </div>
+                <br>
+            </div>
+            <br>
+            
+            <div class="col-md-6">
+                <h5>Permanent Address</h5>
+                <form id="permanent-address-form">
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" class="form-control" id="p-phone" name="phone" required>
+                    </div>
+                </form>
+
+                <form id="permanent-address-form">
+                     <div class="form-group">
+                        <label for="street">Street Address:</label>
+                        <input type="text" class="form-control" id="p-street" name="street" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="p-city" name="city" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" id="p-state" name="state" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zip">ZIP Code:</label>
+                        <input type="text" class="form-control" id="p-zip" name="zip" required>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" id="Submit-bttn" name="Submit-bttn">Submit</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() 
+        {
+            $("#permanentCheckbox").click(function() 
+            {
+                if ($("#permanentCheckbox").prop("checked")) 
+                {
+                     
+                     var phone = $("#phone").val();
+                     $('#p-phone').val(phone);
+                     
+                     var street = $("#street").val();
+                     $('#p-street').val(street);
+                     
+                     var city = $("#city").val();
+                     $('#p-city').val(city);
+                     
+                     var state = $("#state").val();
+                     $('#p-state').val(state);
+                     
+                     var zip = $("#zip").val();
+                     $('#p-zip').val(zip);
+                     
+                }
+                else
+                {
+                     $('#p-phone').val("");
+                     $('#p-street').val("");
+                     $('#p-city').val("");
+                     $('#p-state').val("");
+                     $('#p-zip').val(""); 
+                }
+            });
+            
+              $("#Submit-bttn").click(function() 
+              {
+                //<!----Current Address-->
+                var firstname=$('#first-name').val();  
+                var lastname=$('#last-name').val();
+                var email=$('#email').val();
+                var phone=$('#phone').val();
+                var street=$('#street').val();
+                var city=$('#city').val();
+                var state=$('#state').val();
+                var zip=$('#zip').val(); 
+                
+                //<!--Permanent Address---->
+                var pfirstname=$('#p-first-name').val();  
+                var plastname=$('#p-last-name').val();
+                var pemail=$('#p-email').val();
+                var pphone=$('#p-phone').val();
+                var pstreet=$('#p-street').val();
+                var pcity=$('#p-city').val();
+                var pstate=$('#p-state').val();
+                var pzip=$('#p-zip').val();  
+                
+                if(firstname!=="" && lastname!=="" && email!=="" 
+                && phone!=="" && street!=="" && city!=="" && state!=="" 
+                && zip!=="" && pfirstname!=="" && plastname!=="" && pemail!=="" 
+                && pphone!=="" && pstreet!=="" && pcity!=="" && pstate!=="" && pzip!=="")
+                {
+                    alert("Your data has been Submitted");                
+                }
+                else 
+                {
+                    alert("Please fill in all the required fields in both addresses.");
+                }
+              });
+            
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
