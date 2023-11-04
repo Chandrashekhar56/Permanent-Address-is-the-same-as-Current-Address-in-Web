@@ -149,7 +149,14 @@
                      $('#p-street').val("");
                      $('#p-city').val("");
                      $('#p-state').val("");
-                     $('#p-zip').val(""); 
+                     $('#p-zip').val("");
+                     
+                    // both code work same
+                    //const fieldsToClear = ['p-phone','p-street','p-city','p-state','p-zip'];
+                    //for (const fieldId of fieldsToClear)
+                    //{
+                    //      $(`#${fieldId}`).val("");
+                    //}
                 }
             });
             
@@ -180,7 +187,35 @@
                 && zip!=="" && pfirstname!=="" && plastname!=="" && pemail!=="" 
                 && pphone!=="" && pstreet!=="" && pcity!=="" && pstate!=="" && pzip!=="")
                 {
-                    alert("Your data has been Submitted");                
+                    alert("Your data has been Submitted"); 
+                    
+                    //$('#first-name').val("");  
+                    //$('#last-name').val("");
+                    //$('#email').val("");
+                    //$('#phone').val("");
+                    //$('#street').val("");
+                    //$('#city').val("");
+                    //$('#state').val("");
+                    //$('#zip').val(""); 
+                    //$('#p-first-name').val("");  
+                    //$('#p-last-name').val("");
+                    //$('#p-email').val("");
+                    //$('#p-phone').val("");
+                    //$('#p-street').val("");
+                    //$('#p-city').val("");
+                    //$('#p-state').val("");
+                    //$('#p-zip').val("");
+                   // both code work same
+                   
+                 const fieldsToClear = [  'first-name','last-name','email','phone','street','city',
+                                          'state','zip','p-first-name','p-last-name','p-email',
+                                          'p-phone','p-street','p-city','p-state','p-zip'];
+
+                    for (const fieldId of fieldsToClear)
+                    {
+                          $(`#${fieldId}`).val("");
+                    }
+   
                 }
                 else 
                 {
@@ -192,15 +227,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
